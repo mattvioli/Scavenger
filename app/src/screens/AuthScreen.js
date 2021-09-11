@@ -1,7 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { ImageBackground, View, Text, StyleSheet, TouchableOpacity, TextInput, Platform } from 'react-native';
+import { save, getValueFor } from '../utils/secureStore'
+
+import { AuthContext } from '../utils/authContext';
+
 
 const API_URL = Platform.OS === 'ios' ? 'http://localhost:5000' : 'http://10.0.2.2:5000';
+
+// Platform.OS === 'ios' ? 'http://localhost:5000' : 'http://10.0.2.2:5000';
 
 const AuthScreen = () => {
 
@@ -12,6 +18,8 @@ const AuthScreen = () => {
     const [isError, setIsError] = useState(false);
     const [message, setMessage] = useState('');
     const [isLogin, setIsLogin] = useState(true);
+
+    const [loggedIn, setLoggedIn] = useContext(AuthContext)
 
     const onChangeHandler = () => {
         setIsLogin(!isLogin);
@@ -64,6 +72,7 @@ const AuthScreen = () => {
                     onLoggedIn(jsonRes.token);
                     setIsError(false);
                     setMessage(jsonRes.message);
+                    setLoggedIn('true')
                 }
             } catch (err) {
                 console.log(err);
@@ -90,7 +99,7 @@ const AuthScreen = () => {
                         <TextInput secureTextEntry={true} style={styles.input} placeholder="Password" onChangeText={setPassword}></TextInput>
                         <Text style={[styles.message, {color: isError ? 'red' : 'green'}]}>{message ? getMessage() : null}</Text>
                         <TouchableOpacity style={styles.button} onPress={onSubmitHandler}>
-                            <Text style={styles.buttonText}>Done</Text>
+                            <Text style={styles.buttonText}>{!isLogin ? 'Sign Up' : 'Log In'}</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.buttonAlt} onPress={onChangeHandler}>
                             <Text style={styles.buttonAltText}>{isLogin ? 'Sign Up' : 'Log In'}</Text>
