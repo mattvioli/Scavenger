@@ -1,17 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { AuthScreen } from './src/screens';
-import { getValueFor } from './src/utils/secureStore';
 import MainScreen from './src/screens/MainScreen';
 import { AuthContext } from './src/utils/authContext';
 
 const Tab = createBottomTabNavigator();
 
 
-export default function App({ navigation }) {
+export default function App() {
   const [ loggedIn, setLoggedIn ] = useState('false');
 
 

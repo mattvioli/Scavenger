@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react';
 import { ImageBackground, View, Text, StyleSheet, TouchableOpacity, TextInput, Platform } from 'react-native';
-import { save, getValueFor } from '../utils/secureStore'
 
 import { AuthContext } from '../utils/authContext';
 
@@ -39,6 +38,7 @@ const AuthScreen = () => {
                 const jsonRes = await res.json();
                 if (res.status === 200) {
                     setMessage(jsonRes.message);
+                    setLoggedIn('true')
                 }
             } catch (err) {
                 console.log(err);
@@ -72,7 +72,6 @@ const AuthScreen = () => {
                     onLoggedIn(jsonRes.token);
                     setIsError(false);
                     setMessage(jsonRes.message);
-                    setLoggedIn('true')
                 }
             } catch (err) {
                 console.log(err);
