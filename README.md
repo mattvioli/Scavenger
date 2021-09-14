@@ -29,3 +29,41 @@ I am thinking Viro, as it allows us to upload our own images, like a Logo of the
 
 4. Stretch Goal!!!! Add Pokemon go like object to find.
 https://github.com/viromedia/viro/issues/131
+
+## Screenshot
+None available yet
+
+## Technologies
+### Front End
+-JavaScript
+-React
+-React-Native
+-Expo
+-Nodemon
+
+### Back End
+-Express
+-BcryptJs
+-PG
+-Sequelize
+
+### Other
+-Android Studio emulator
+
+
+## General Approach
+
+## Installation instructions for dependencies
+
+## User Stories
+who are your users, what do they want, and why?
+
+## Wireframes
+
+## Pitch Deck
+documentation of your wireframes, user stories, and proposed architecture
+
+## Unsolved problems or major hurdles.
+
+The first major hurdle was understanding React-Native and how it differs from React.
+The second hurdle was deciding to use an app state or SecureStore.
