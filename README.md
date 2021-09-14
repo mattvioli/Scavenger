@@ -35,20 +35,20 @@ None available yet
 
 ## Technologies
 ### Front End
--JavaScript
--React
--React-Native
--Expo
--Nodemon
+* JavaScript
+* React
+* React-Native
+* Expo
+* Nodemon
 
 ### Back End
--Express
--BcryptJs
--PG
--Sequelize
+* Express
+* BcryptJs
+* PG
+* Sequelize
 
 ### Other
--Android Studio emulator
+* Android Studio emulator
 
 
 ## General Approach
