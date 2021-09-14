@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, TouchableOpacity, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -10,7 +10,7 @@ import { AuthContext } from './src/utils/authContext';
 const Tab = createBottomTabNavigator();
 
 
-export default function App() {
+export default function App({ navigation }) {
   const [ loggedIn, setLoggedIn ] = useState('false');
 
 
@@ -19,9 +19,23 @@ export default function App() {
       <AuthContext.Provider value={[loggedIn, setLoggedIn]}>
         <Tab.Navigator>
           {loggedIn == 'false' ? (
-            <Tab.Screen name="SignIn" component={AuthScreen} />
+            <>
+              <Tab.Screen name="Sign in" component={AuthScreen} />
+            </>
             ) : (
-              <Tab.Screen name="Main" component={MainScreen} />
+              <>
+                <Tab.Screen name="Main" component={MainScreen} />
+                <Tab.Screen
+                  name="Log Out"
+                  component={MainScreen}
+                  options={({ navigation }) => ({
+                    tabBarButton: (props) => (
+                      <TouchableOpacity onPress={() => setLoggedIn('false')}>
+                        <Text>Log Out</Text>
+                      </TouchableOpacity>
+                    ),})}
+                />              
+              </>
           )}
         </Tab.Navigator>
       </AuthContext.Provider>
@@ -38,9 +52,6 @@ const styles = StyleSheet.create({
   },
 });
 
-//what I am doing.
-// trying to use SecureStore to store if the user is logged in, and the username.
-// if they are logged in, it will show the main page instead of login/sign up.
-// https://docs.expo.dev/versions/latest/sdk/securestore/
-// https://reactnavigation.org/docs/auth-flow
-// https://reactnative.dev/docs/navigation
+//To do list
+// Log out button
+// navigate to first challenge
