@@ -59,6 +59,7 @@ None available yet
 who are your users, what do they want, and why?
 
 ## Wireframes
+https://www.figma.com/file/83ofj60eRd8ODvL4kvY3HO/Scavenger-Hunt?node-id=0%3A1
 
 ## Pitch Deck
 documentation of your wireframes, user stories, and proposed architecture
