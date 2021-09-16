@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { AuthScreen, RiddleScreen, MainScreen } from './src/screens';
+import { AuthScreen, MainScreen } from './src/screens';
 import { AuthContext } from './src/utils/authContext';
 
 const Stack = createNativeStackNavigator();
@@ -34,12 +34,7 @@ export default function App({ navigation }) {
                         <Text>Log Out</Text>
                       </TouchableOpacity>
                     ),})}
-                />
-                {/* need to move this somewhere else...        */}
-                <Tab.Screen
-                  name="Start"
-                  component={RiddleScreen}
-               />         
+                />    
               </Tab.Group>
           )}
         </Tab.Navigator>

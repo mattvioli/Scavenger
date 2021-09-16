@@ -1,26 +1,20 @@
-import React, { useContext } from 'react';
+import React, { useState } from 'react';
 import { ImageBackground, Button, Text, View } from 'react-native';
 import { AuthContext } from '../utils/authContext';
+
 import styles from './ScreenStyles';
+import Main from '../components/Main'
+import Riddle from '../components/Riddle'
 
 const MainScreen = ({ navigation }) => {
-
-  const [loggedIn, setLoggedIn] = useContext(AuthContext)
-
+  const [ page, setPage ] = useState('main')
 
   return (
-    <ImageBackground source={require('../../public/images/background.jpg')} style={styles.image}>
-    <View style={styles.card}>
-      <Text style={styles.heading}>Home Screen</Text>
-      <Text>Hello! Welcome to the grand adventure!</Text>
-      <Text>Take your time, click start you're ready.</Text>
-      <Button 
-        title="Start"
-        onPress={() => navigation.navigate('Start')
-      }/>
-    </View>
-    </ImageBackground>
-
+    <AuthContext.Provider value={[page, setPage]}>
+      {page === 'main' ? <Main /> :
+      page === 'riddle' ? <Riddle /> : null
+      }
+    </AuthContext.Provider>
   );
 }
 

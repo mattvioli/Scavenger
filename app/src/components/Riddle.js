@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import { ImageBackground, Button, Text, View, TextInput } from 'react-native';
 import { AuthContext } from '../utils/authContext';
-import styles from './ScreenStyles';
+import styles from '../screens/ScreenStyles';
 
-const RiddleScreen = () => {
+const Riddle = () => {
 const [ guess, setGuess ] = useState('');
 const answer = 'yarra';
 const clue = 'it runs through Melbrourne'
 // the answer should check with a contains incase they say 'the yarra river' or 'the yarra' ect.
 
+const checkGuess = () => {
+  // if()
+}
   return (
     <ImageBackground source={require('../../public/images/background.jpg')} style={styles.image}>
     <View style={styles.card}>
@@ -29,4 +32,4 @@ const clue = 'it runs through Melbrourne'
   );
 }
 
-export default RiddleScreen;
+export default Riddle;
