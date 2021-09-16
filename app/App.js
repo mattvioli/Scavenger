@@ -2,28 +2,28 @@ import React, { useState } from 'react';
 import { StyleSheet, TouchableOpacity, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { AuthScreen } from './src/screens';
-import MainScreen from './src/screens/MainScreen';
+import { AuthScreen, MainScreen } from './src/screens';
 import { AuthContext } from './src/utils/authContext';
 
-const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
 
 export default function App({ navigation }) {
-  const [ loggedIn, setLoggedIn ] = useState('false');
-
+  const [ loggedIn, setLoggedIn ] = useState('true');
+  const Tab = createBottomTabNavigator();
 
   return (
     <NavigationContainer>
       <AuthContext.Provider value={[loggedIn, setLoggedIn]}>
         <Tab.Navigator>
           {loggedIn == 'false' ? (
-            <>
+            <Tab.Group>
               <Tab.Screen name="Sign in" component={AuthScreen} />
-            </>
+            </Tab.Group>
             ) : (
-              <>
+              <Tab.Group>
                 <Tab.Screen name="Main" component={MainScreen} />
                 <Tab.Screen
                   name="Log Out"
@@ -34,8 +34,8 @@ export default function App({ navigation }) {
                         <Text>Log Out</Text>
                       </TouchableOpacity>
                     ),})}
-                />              
-              </>
+                />    
+              </Tab.Group>
           )}
         </Tab.Navigator>
       </AuthContext.Provider>
@@ -52,6 +52,6 @@ const styles = StyleSheet.create({
   },
 });
 
-//To do list
-// Log out button
-// navigate to first challenge
+//to do list:
+//Create first challenge page
+//Create
