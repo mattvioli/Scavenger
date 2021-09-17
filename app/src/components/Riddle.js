@@ -23,6 +23,7 @@ const Riddle = () => {
     setModalVisible(!modalVisible)
     setPage('location')
   }
+  
     return (
     <ImageBackground source={require('../../public/images/background.jpg')} style={styles.image}>
     <View style={styles.card}>
