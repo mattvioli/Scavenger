@@ -5,16 +5,16 @@ import { AuthContext } from '../utils/authContext';
 import styles from './ScreenStyles';
 import Main from '../components/Main'
 import Riddle from '../components/Riddle'
-import Location from '../components/Location';
+import Geolocation from '../components/Location';
 
 const MainScreen = ({ navigation }) => {
-  const [ page, setPage ] = useState('main')
+  const [ page, setPage ] = useState('location')
 
   return (
     <AuthContext.Provider value={[page, setPage]}>
       {page === 'main' ? <Main /> :
       page === 'riddle' ? <Riddle /> :
-      page === 'location' ? <Location /> : null
+      page === 'location' ? <Geolocation /> : null
       }
     </AuthContext.Provider>
   );
