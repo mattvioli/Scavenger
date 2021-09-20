@@ -21,13 +21,12 @@ const Geolocation = () => {
   }
 
   const onPress = async () => {
-    console.log('before await')
       let { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== 'granted') {
         setErrorMsg('Permission to access location was denied');
         return;
       }
-
+      // this should be getCurrentPositionAsync, however it doesn't work correctly with google location permissions :()
       let location = await Location.getLastKnownPositionAsync({
         accuracy: 6,
       });
@@ -35,7 +34,6 @@ const Geolocation = () => {
         setLongitude(location.coords.longitude);
 
       setLocation(location.coords);
-      console.log('after await')
       if((longitude > goalLongitude - 0.01 && longitude < goalLongitude + 0.1 ) && (latitude > goalLatitude - 0.01 && latitude < goalLatitude + 0.1 )) {
         setModalVisible(true)
 
