@@ -107,6 +107,9 @@ const styles = StyleSheet.create({
       buttonClose: {
         backgroundColor: "#2196F3",
       },
+      camera: {
+        flex: 1,
+      },
 });
 
 

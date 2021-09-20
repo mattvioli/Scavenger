@@ -11,14 +11,15 @@ const Stack = createNativeStackNavigator();
 
 
 export default function App({ navigation }) {
-  const [ loggedIn, setLoggedIn ] = useState('true');
+  //this should be false, however because of
+  const [ loggedIn, setLoggedIn ] = useState(false);
   const Tab = createBottomTabNavigator();
 
   return (
     <NavigationContainer>
       <AuthContext.Provider value={[loggedIn, setLoggedIn]}>
         <Tab.Navigator>
-          {loggedIn == 'false' ? (
+          {loggedIn == false ? (
             <Tab.Group>
               <Tab.Screen name="Sign in" component={AuthScreen} />
             </Tab.Group>
@@ -30,7 +31,7 @@ export default function App({ navigation }) {
                   component={MainScreen}
                   options={({ navigation }) => ({
                     tabBarButton: (props) => (
-                      <TouchableOpacity onPress={() => setLoggedIn('false')}>
+                      <TouchableOpacity onPress={() => setLoggedIn(false)}>
                         <Text>Log Out</Text>
                       </TouchableOpacity>
                     ),})}
