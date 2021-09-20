@@ -5,7 +5,7 @@ import { AuthContext } from '../utils/authContext';
 import styles from './ScreenStyles';
 
 
-const API_URL = Platform.OS === 'ios' ? 'http://localhost:5000' : 'http://10.0.2.2:5000';
+const API_URL = Platform.OS === 'ios' ? 'http://localhost:5000' : 'http://192.168.20.8:5000';
 
 // Platform.OS === 'ios' ? 'http://localhost:5000' : 'http://10.0.2.2:5000';
 

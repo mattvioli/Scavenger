@@ -28,7 +28,7 @@ const Geolocation = () => {
         return;
       }
 
-      let location = await Location.getCurrentPositionAsync({
+      let location = await Location.getLastKnownPositionAsync({
         accuracy: 6,
       });
         setLatitude(location.coords.latitude);
@@ -36,7 +36,7 @@ const Geolocation = () => {
 
       setLocation(location.coords);
       console.log('after await')
-      if((longitude > goalLongitude - 0.01 && longitude < goalLongitude + 0.01 ) && (latitude > goalLatitude - 0.01 && latitude < goalLatitude + 0.01 )) {
+      if((longitude > goalLongitude - 0.01 && longitude < goalLongitude + 0.1 ) && (latitude > goalLatitude - 0.01 && latitude < goalLatitude + 0.1 )) {
         setModalVisible(true)
 
       }

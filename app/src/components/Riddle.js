@@ -12,7 +12,7 @@ const Riddle = () => {
 
   // the answer should check with a contains incase they say 'the yarra river' or 'the yarra' ect.
   const checkGuess = () => {
-    if(guess.includes(answer)) {
+    if((guess.toLowerCase()).includes(answer)) {
     setModalVisible(true)
     } else {
       alert('try again')
